@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0px 20px;
+}
+.dcol{
+    display: flex;
+    flex-direction: column;
+}
+.session{
+    background-color: gray;
+}

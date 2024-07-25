@@ -61,8 +61,9 @@ export default function Create() {
                 console.log('Session created', sessionData);
             }
         }
+        setCreated(true)
     };
-
+    const [created,setCreated] = useState(false)
     return (
         <div className='min-w-full px-40 flex justify-center items-center flex-col bg-gray-500'>
             <h1 className='my-10'>Create Event with Sessions</h1>
@@ -70,6 +71,7 @@ export default function Create() {
             <form className='bg-white p-4 rounded shadow-2xl min-w-full' onSubmit={createEvent}>
                 <div className='d-flex flex-col border-b-2 '>
                     <div className='d-flex flex-col ' >
+                        {created? <p className='bg-green-300 p-2 rounded text-center mb-4'>Evento Criado com Sucesso</p> : false}
                         <label className='block ml-2' htmlFor="eventTitle">Título do Evento:</label>
                         <input
                             className='border w-5/6 roundend m-2 block'

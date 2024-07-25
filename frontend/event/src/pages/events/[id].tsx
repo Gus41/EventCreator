@@ -57,10 +57,13 @@ export default function Name(){
 
   function renderSessionsInCol(){
     return event.sessions.map(s=>{
+      if(s.title == 'button'){
+        return <a className='btn btn-inscricoes' href={s.content} target='_blank'>Inscreva-se</a>
+      }
       return(
         <>
-          <h2>{s.title}</h2>
-          <p>{s.content}</p>
+          <h2 className='font-bold'>{s.title}</h2>
+          <p className='mb-3'>{s.content}</p>
         </>
       )
     })
@@ -73,7 +76,7 @@ export default function Name(){
           <p className="evento-acad"><b>Evento Acadêmico</b></p>
           <hr/>
 
-          <h3>{event.title}</h3>
+          <h3 className='font-bold'>{event.title}</h3>
           <h4>{event.subtitle}</h4>
 
         </div>

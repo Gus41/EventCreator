@@ -64,14 +64,15 @@ export default function Create() {
     };
 
     return (
-        <div>
-            <h1>Create Event with Sessions</h1>
+        <div className='min-w-full px-40 flex justify-center items-center flex-col'>
+            <h1 className='my-10'>Create Event with Sessions</h1>
 
-            <form onSubmit={createEvent}>
-                <div className='createHeader'>
-                    <div>
-                        <label htmlFor="eventTitle">Event Title:</label>
+            <form className='bg-white p-4 rounded shadow-2xl min-w-full' onSubmit={createEvent}>
+                <div className='d-flex flex-col border-b-2 '>
+                    <div className='d-flex flex-col ' >
+                        <label className='block ml-2' htmlFor="eventTitle">Título do Evento:</label>
                         <input
+                            className='border w-5/6 roundend m-2 block'
                             type="text"
                             id="eventTitle"
                             value={eventTitle}
@@ -79,9 +80,10 @@ export default function Create() {
                             required
                         />
                     </div>
-                    <div>
-                        <label htmlFor="eventContent">Event Content:</label>
+                    <div className='d-flex flex-col ' >
+                        <label className='block ml-2' htmlFor="eventContent">Descrição</label>
                         <textarea
+                            className='border w-5/6 block roundend m-2'
                             id="eventContent"
                             value={eventContent}
                             onChange={handleEventContentChange}
@@ -90,36 +92,46 @@ export default function Create() {
                     </div>
                 </div>
                 <div id="sessions">
-                    <h2>Sessions</h2>
-                    
-                    {sessions.map((session, index) => (
-                        <div key={index} className="session">
-                            <h3>Session {index + 1}</h3>
-                            <div>
-                                <label htmlFor={`sessionTitle${index}`}>Session Title:</label>
-                                <input
-                                    type="text"
-                                    id={`sessionTitle${index}`}
-                                    value={session.title}
-                                    onChange={(e) => handleSessionTitleChange(index, e)}
-                                    required
-                                />
+                    <h2 className='text-center my-4'>Sessões</h2>
+                    <div className='flex flex-row flex-wrap'>
+                        {sessions.map((session, index) => (
+                            <div key={index} className="session max-w-md bg-slate-200 mx-2 p-2 my-4 d-flex flex-col rounded shadow-xl">
+                                <h3>Sessão {index + 1}</h3>
+
+                                <div className='d-flex flex-col m-4' >
+                                    <label className='block ml-2' htmlFor={`sessionTitle${index}`}>Título da Sessão:</label>
+                                    <input
+                                        className='rounded shadow border w-5/6 roundend m-2 block'
+                                        type="text"
+                                        id={`sessionTitle${index}`}
+                                        value={session.title}
+                                        onChange={(e) => handleSessionTitleChange(index, e)}
+                                        required
+                                    />
+                                </div>
+                                <div className='d-flex flex-col m-4' >
+                                    <label className=' block ml-2' htmlFor={`sessionContent${index}`}>Conteúdo:</label>
+                                    <textarea
+                                        className='rounded shadow border min-w-72 block roundend m-2'
+                                        id={`sessionContent${index}`}
+                                        value={session.content}
+                                        onChange={(e) => handleSessionContentChange(index, e)}
+                                        required
+                                    />
+                                </div>
                             </div>
-                            <div>
-                                <label htmlFor={`sessionContent${index}`}>Session Content:</label>
-                                <textarea
-                                    id={`sessionContent${index}`}
-                                    value={session.content}
-                                    onChange={(e) => handleSessionContentChange(index, e)}
-                                    required
-                                />
-                            </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
-                <button type="button" onClick={addSessionField}>Add Another Session</button>
+                <button 
+                    className="session max-w-md bg-slate-200 mx-2 p-2 my-4 d-flex flex-col rounded shadow-xl"
+                    type="button" onClick={addSessionField}>Adicionar Sessão</button>
                 <br /><br />
-                <button type="submit">Create Event</button>
+                <div className='w-full flex items-center justify-center'>
+                    <button
+                        className="mx-auto session max-w-md bg-lime-400 mx-2 p-4 my-4 d-flex flex-col rounded shadow-xl"
+                        type="submit">Criar Evento</button>
+                </div>
             </form>
         </div>
     );

@@ -64,7 +64,7 @@ export default function Create() {
     };
 
     return (
-        <div className='min-w-full px-40 flex justify-center items-center flex-col'>
+        <div className='min-w-full px-40 flex justify-center items-center flex-col bg-gray-500'>
             <h1 className='my-10'>Create Event with Sessions</h1>
 
             <form className='bg-white p-4 rounded shadow-2xl min-w-full' onSubmit={createEvent}>
@@ -96,7 +96,7 @@ export default function Create() {
                     <div className='flex flex-row flex-wrap'>
                         {sessions.map((session, index) => (
                             <div key={index} className="session max-w-md bg-slate-200 mx-2 p-2 my-4 d-flex flex-col rounded shadow-xl">
-                                <h3>Sessão {index + 1}</h3>
+                                <h3 className='text-black'>Sessão {index + 1}</h3>
 
                                 <div className='d-flex flex-col m-4' >
                                     <label className='block ml-2' htmlFor={`sessionTitle${index}`}>Título da Sessão:</label>

@@ -84,7 +84,7 @@ export default function Name(){
       <section>
         <div className="container mx-auto px-32">
           <div className="row">
-            <div className="columns-2">
+            <div className="md:colums-1 colums-2">
               {renderSessionsInCol()}
             </div> 
           </div> 
